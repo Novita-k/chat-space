@@ -16,7 +16,6 @@
 |email|string|null: false|
 |password|string|null: false|
 |nickname|string|null: false|
-|group_id|integer|null: false, foreing_key: true|
 # association
 - has_many :posts
 - has_many :users_groups
@@ -25,8 +24,7 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_title|text|null: false|
-|member_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 # association
 - has_many :posts
 - has_many :users_groups
