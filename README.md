@@ -1,24 +1,42 @@
-# README
+# Pictweet DB設計
+## postsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|text||
+|text|text||
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: fales, foreing_key: true|
+# association
+- belongs_to :user
+- belongs_to :group
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|nickname|string|null: false|
+|group_id|integer|null: false, foreing_key: true|
+# association
+- has_many :posts
+- has_many :users_groups
+- has_many :groups, through: :users_groups
 
-Things you may want to cover:
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group_title|text|null: false|
+|member_id|integer|null: false, foreign_key: true|
+# association
+- has_many :posts
+- has_many :users_groups
+- has_many :users, through: :users_groups
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 中間テーブルusers_groups
+|colum|type|options|
+|------|----|------|
+|user_id|integer|null: false, foreing_key: true|
+|group_id|integer|null: false, forering_key: true|
+# association
+- belongs_to :user
+- belongs_to :group
