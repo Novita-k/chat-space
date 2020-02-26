@@ -27,10 +27,30 @@ $color-white: #ffffff;
   font-size: 14px;
   color: #434a54;
 }
-.file {
+.hidden {
   display: none;
 }
-
+.form__submit {
+  background-color: #38aef0;
+  color: $color-white;
+  height: 50px;
+  width: 100px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+.form__message {
+  border-style: none;
+  height: 50px;
+   width: 100%;
+}
+.new_message {
+  height: 50px;
+width: 100%;
+padding: 0 10px;
+margin-right: 15px;
+display: flex;
+align-items: center;
+}
 
 .side-bar {
   height: 100vh;
@@ -158,33 +178,10 @@ $color-white: #ffffff;
     &__comment-box {
       height: 50px;
       width: 100%;
-      padding: 0 10px;
-      margin-right: 15px;
-      display: flex;
-      align-items: center;
-      position: relative;
       &__image {
         position: absolute;
-        right: 25px;
+        right: 165px;
       }
-      input {
-        border-style: none;
-        height: 50px;
-         width: 100%;
-      }
-    }
-    &__send-btn {
-      height: 50px;
-      width: 100px;
-      display: flex;
-      align-items: center;
-        input {
-          background-color: #38aef0;
-          color: $color-white;
-          height: 50px;
-          width: 100px;
-          cursor: pointer;
-        }
     }
   }
 }
