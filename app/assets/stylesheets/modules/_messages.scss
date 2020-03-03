@@ -153,6 +153,7 @@ align-items: center;
     height: calc(100vh - 190px);
     width: 100%;
     background-color: #fafafa;
+    overflow: scroll;
     &__box {
       margin-left: 40px;
       padding-top: 35px;
@@ -166,6 +167,7 @@ align-items: center;
     }
   }
 }
+
 
 .chat-main {
   &__message-form {
