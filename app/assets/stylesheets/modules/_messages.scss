@@ -85,7 +85,7 @@ align-items: center;
     height: calc(100vh - 100px);
     width: 300px;
     &__box {
-      height: 91px;
+      height: 70px;
       width: 260px;
       margin: 0 auto;
       color: $color-white;
@@ -97,6 +97,10 @@ align-items: center;
         line-height: 15px;
         font-size: 15px;
         margin-bottom: 5px;
+        a {
+          text-decoration: none;
+          color: $color-white;
+        }
       }
       &__message {
         height: 11px;

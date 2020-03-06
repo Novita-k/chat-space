@@ -11,8 +11,8 @@
           =link_to edit_user_path(current_user) do
             = icon('fas', 'cog', class: 'icon')
   .side-bar__group-list
-    .side-bar__group-list__box
-      - current_user.groups.each do |group|
+    - current_user.groups.each do |group|
+      .side-bar__group-list__box
         .side-bar__group-list__box__name
           = link_to group_messages_path(group) do
             = group.name
