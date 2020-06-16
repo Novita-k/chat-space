@@ -1,0 +1,11 @@
+# docker-compose fileのバージョン？
+version: '3'
+
+# 起動する各コンテナ
+services:
+  db: # 立ち上げるコンテナを識別する名前。分かり易ければなんでも良い
+    image: mysql # 立ち上げるdockerimageを選択。imageで指定した場合はHubからダウンロードする
+    ports: 
+      - '8080:80' # ポートフォワードの指定。localhostの8080ポートアクセスしたらコンテナの80ポートに転送
+    volumes:
+      - 

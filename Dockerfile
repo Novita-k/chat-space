@@ -12,20 +12,26 @@ FROM ruby:2.5.1
 
 # ベースイメージに必要なパッケージのインストール（apt-getはlinuxのパッケージ管理ツールAPTのコマンド、macで言うhomebrew）
 # apt-get update: パッケージをインストールするのに必要なインデックスファイルをダウンロードする。
-# -qq オプションはエラー以外の履歴を表示させない
 # apt-get install: 後ろに続いて記載されたパッケージ達をインストールする
-# -y オプションはy/nの問い全てに自動的でyesと答える
-# ポスグレのクライアントを最小単位でインストール
+# nodejsとmysqlのクライアントを最小単位でインストール
 # ファイルサイズの大きいパッケージリストのキャッシュを削除してimageのサイズを縮小
 RUN apt-get update && \
-    apt-get install -y postgresql-client --no-install-recommends && \
-    apt-get clean && \
+    apt-get install -y nodejs --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y mysql-client --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
+# RUN apt-get update && \
+#     apt-get install -y postgresql-client --no-install-recommends && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
 
 # build-essential: 開発ツールのパッケージ
 # libpq はPostgreSQLデータベースサーバにアクセスするためのC言語のライブラリ
 # PHP,Ruby,Perl,Python,NodeJS,etcはlibpqを利用してPostgreSQLにアクセスするAPIを提供しています。
-# nodejs はJavaScriptのライブラリ
+# -qq オプションはエラー以外の履歴を表示させない
+# -y オプションはy/nの問い全てに自動的でyesと答える
 RUN apt-get update -qq && \
     apt-get install -y build-essential \
                        libpq-dev \
